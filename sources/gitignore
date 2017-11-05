@@ -1,0 +1,5 @@
+# vim swap
+*.swp
+
+# gcc/g++ temporary executable
+a.out

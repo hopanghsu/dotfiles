@@ -1,0 +1,18 @@
+# Personal settings
+[user]
+  name = Ho-Pang Hsu
+  email = hopang.hsu@gmail.com
+
+[core]
+  autocrlf = false
+  editor = /usr/bin/vim
+  pager = cat
+  excludesfile = ~/.gitignore
+
+[color]
+  ui = auto
+
+[alias]
+  hgp = "show --binary --find-renames --format=\"# HG changeset patch%n# User %an <%ae>%n%B\" -U8"
+  cshow = "show --color=always"
+  cdiff = "diff --color=always"
