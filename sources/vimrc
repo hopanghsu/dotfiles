@@ -7,8 +7,8 @@ call plug#begin('~/.vim/plugged')
 
 " let Vundle manage Vundle, required
 Plug 'rust-lang/rust.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
+Plug 'faith/vim-go'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 
 " Initialize plugin system
@@ -30,6 +30,10 @@ set colorcolumn=81
 
 set laststatus=2                " for airline
 let g:airline_powerline_fonts=1 " for airline
+
+" Disable beeping
+set visualbell
+set t_vb=
 
 " Search Settings
 set ignorecase
