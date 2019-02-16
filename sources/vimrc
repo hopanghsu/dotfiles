@@ -6,10 +6,10 @@
 call plug#begin('~/.vim/plugged')
 
 " let Vundle manage Vundle, required
-Plug 'rust-lang/rust.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'faith/vim-go'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'rust-lang/rust.vim'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Initialize plugin system
 call plug#end()
@@ -27,13 +27,6 @@ set showmatch
 set number
 set encoding=utf-8
 set colorcolumn=81
-
-set laststatus=2                " for airline
-let g:airline_powerline_fonts=1 " for airline
-
-" Disable beeping
-set visualbell
-set t_vb=
 
 " Search Settings
 set ignorecase
@@ -65,35 +58,3 @@ set hlsearch
 
 " Syntax Hightlight for Various Types
 autocmd BufNewFile,BufFilePre,BufRead *.sjs set syntax=javascript
-
-" ============================================================================ "
-"                                    Misc                                      "
-" ============================================================================ "
-
-" Stripping trailing spaces only on edited lines.
-
-fun! <SID>SetupTrailingWhitespaces()
-  let curline = line('.')
-  let b:insert_top = curline
-  let b:insert_bottom = curline
-endfun
-
-fun! <SID>UpdateTrailingWhitespace()
-  let curline = line('.')
-  if b:insert_top > curline
-    let b:insert_top = curline
-  elseif b:insert_bottom < curline
-    let b:insert_bottom = curline
-  endif
-endfun
-
-fun! <SID>StripTrailingWhitespaces()
-  let original_cursor = getpos('.')
-  exe b:insert_top ',' b:insert_bottom 's/\s\+$//e'
-  call setpos('.', original_cursor)
-endfun
-
-autocmd InsertEnter * :call <SID>SetupTrailingWhitespaces()
-autocmd InsertLeave * :call <SID>StripTrailingWhitespaces()
-autocmd CursorMovedI * :call <SID>UpdateTrailingWhitespace()
-
