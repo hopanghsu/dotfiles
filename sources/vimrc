@@ -10,33 +10,37 @@ Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'rust-lang/rust.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 
 " Initialize plugin system
 call plug#end()
 
-" ============================================================================ "
-"                               General Settings                               "
-" ============================================================================ "
+" ================== "
+"  General Settings  "
+" ================== "
 
 filetype plugin indent on
-set modelines=0
 
 " Display Settings
 syntax on
+set modelines=1
 set showmatch
 set number
 set encoding=utf-8
 set colorcolumn=81
+highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 " Search Settings
 set ignorecase
 set smartcase
+set hlsearch
 
 " Key Settings
 set backspace=indent,eol,start
+set paste
 
 " Indent Settings
-set modeline " use per file settings
 set autoindent
 set smartindent
 set tabstop=2
@@ -53,8 +57,8 @@ autocmd BufNewFile,BufFilePre,BufRead *.md setlocal textwidth=80
 set foldmethod=indent
 set foldlevelstart=20
 
-" Searching Enhancement
-set hlsearch
+" ====================== "
+"  Web related settings  "
+" ====================== "
 
-" Syntax Hightlight for Various Types
 autocmd BufNewFile,BufFilePre,BufRead *.sjs set syntax=javascript
