@@ -10,9 +10,9 @@ function setup_config {
 	ln -s $PWD/sources/$1 ~/.$1
 }
 
-# zsh
+# zsh # TODO: Should check the existence of oh-my-zsh
 sudo apt-get install -y zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" # oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" || true # oh-my-zsh
 setup_config zshrc
 chsh -s $(which zsh)
 
