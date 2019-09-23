@@ -7,7 +7,7 @@ sudo apt-get update && sudo apt-get install -y curl
 
 function setup_config {
 	mv --backup=numbered ~/.$1 ~/.$1.bak || true # TODO: Ignore links
-	ln -s ~/Projects/dotfiles/sources/$1 ~/.$1
+	ln -s $PWD/sources/$1 ~/.$1
 }
 
 # zsh
